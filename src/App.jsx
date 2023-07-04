@@ -13,7 +13,10 @@ function App() {
         </header>
 
         <div className='calculator'>
-          <span>{logic.display}</span>
+          <div>
+            <p>{logic.memory}</p>
+            <span>{logic.display}</span>
+          </div>
 
           <div>
             <Button spanToDouble value="Clear" updateOutput={logic.clearDisplay} />
@@ -33,11 +36,11 @@ function App() {
             <Button value="1" updateOutput={logic.addDigit} />
             <Button value="2" updateOutput={logic.addDigit} />
             <Button value="3" updateOutput={logic.addDigit} />
-            <Button value="+" updateOutput={logic.addDigit} />
+            <Button value="+" updateOutput={logic.addOperation} />
 
             <Button value="." updateOutput={logic.addDecimalPoint} />
             <Button value="0" updateOutput={logic.addDigit} />
-            <Button spanToDouble value="=" updateOutput={logic.addDigit} />
+            <Button spanToDouble value="=" updateOutput={logic.equalOperation} />
           </div>
         </div>
       </div>
