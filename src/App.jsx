@@ -1,6 +1,18 @@
-import './App.css'
+import { useState } from 'react'
+import './styles/App.css'
+import DigitButton from './components/DigitButton'
 
 function App() {
+  const [display, setDisplay] = useState('0')
+
+  const addDigit = (digit) => {
+    if (display === '0') {
+      setDisplay(digit)
+    } else {
+      setDisplay(display + digit)
+    }
+  }
+
   return (
     <>
       <div className='container'>
@@ -9,25 +21,25 @@ function App() {
         </header>
 
         <div className='calculator'>
-          <span>0,3333333</span>
+          <span>{display}</span>
 
           <div>
             <button className='double-btn'>Clear</button>
             <button className='double-btn'>DEL</button>
 
-            <button>7</button>
-            <button>8</button>
-            <button>9</button>
+            <DigitButton value={7} updateOutput={addDigit} />
+            <DigitButton value={8} updateOutput={addDigit} />
+            <DigitButton value={9} updateOutput={addDigit} />
             <button>/</button>
 
-            <button>4</button>
-            <button>5</button>
-            <button>6</button>
+            <DigitButton value={4} updateOutput={addDigit} />
+            <DigitButton value={5} updateOutput={addDigit} />
+            <DigitButton value={6} updateOutput={addDigit} />
             <button>*</button>
 
-            <button>1</button>
-            <button>2</button>
-            <button>3</button>
+            <DigitButton value={1} updateOutput={addDigit} />
+            <DigitButton value={2} updateOutput={addDigit} />
+            <DigitButton value={3} updateOutput={addDigit} />
             <button>-</button>
 
             <button>.</button>
