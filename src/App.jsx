@@ -12,23 +12,27 @@ function App() {
           <span>0,3333333</span>
 
           <div>
-            <button>Clear</button>
-            <button>DEL</button>
+            <button className='double-btn'>Clear</button>
+            <button className='double-btn'>DEL</button>
+
             <button>7</button>
             <button>8</button>
             <button>9</button>
             <button>/</button>
+
             <button>4</button>
             <button>5</button>
             <button>6</button>
             <button>*</button>
+
             <button>1</button>
             <button>2</button>
             <button>3</button>
             <button>-</button>
-            <button>0</button>
+
             <button>.</button>
-            <button>=</button>
+            <button>0</button>
+            <button className='double-btn'>=</button>
           </div>
         </div>
       </div>
