@@ -25,6 +25,14 @@ function App() {
     }
   }
 
+  const addDecimalPoint = () => {
+    if (display.includes('.')) {
+      return;
+    }
+
+    setDisplay(display + '.')
+  }
+
   return (
     <>
       <div className='container'>
@@ -54,7 +62,7 @@ function App() {
             <Button value="3" updateOutput={addDigit} />
             <button>-</button>
 
-            <button>.</button>
+            <Button value="." updateOutput={addDecimalPoint} />
             <button>0</button>
             <button className='double-btn'>=</button>
           </div>
