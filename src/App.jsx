@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './styles/App.css'
-import DigitButton from './components/DigitButton'
+import Button from './components/Button'
 
 function App() {
   const [display, setDisplay] = useState('0')
@@ -10,6 +10,18 @@ function App() {
       setDisplay(String(digit))
     } else {
       setDisplay(String(display) + String(digit))
+    }
+  }
+
+  const clearDisplay = () => {
+    setDisplay('0')
+  }
+
+  const deleteOperation = () => {
+    if (display.length === 1) {
+      setDisplay('0')
+    } else {
+      setDisplay(display.slice(0, -1))
     }
   }
 
@@ -24,22 +36,22 @@ function App() {
           <span>{display}</span>
 
           <div>
-            <button className='double-btn'>Clear</button>
-            <button className='double-btn'>DEL</button>
+            <Button spanToDouble value="Clear" updateOutput={clearDisplay} />
+            <Button spanToDouble value="DEL" updateOutput={deleteOperation} />
 
-            <DigitButton value={7} updateOutput={addDigit} />
-            <DigitButton value={8} updateOutput={addDigit} />
-            <DigitButton value={9} updateOutput={addDigit} />
+            <Button value="7" updateOutput={addDigit} />
+            <Button value="8" updateOutput={addDigit} />
+            <Button value="9" updateOutput={addDigit} />
             <button>/</button>
 
-            <DigitButton value={4} updateOutput={addDigit} />
-            <DigitButton value={5} updateOutput={addDigit} />
-            <DigitButton value={6} updateOutput={addDigit} />
+            <Button value="4" updateOutput={addDigit} />
+            <Button value="5" updateOutput={addDigit} />
+            <Button value="6" updateOutput={addDigit} />
             <button>*</button>
 
-            <DigitButton value={1} updateOutput={addDigit} />
-            <DigitButton value={2} updateOutput={addDigit} />
-            <DigitButton value={3} updateOutput={addDigit} />
+            <Button value="1" updateOutput={addDigit} />
+            <Button value="2" updateOutput={addDigit} />
+            <Button value="3" updateOutput={addDigit} />
             <button>-</button>
 
             <button>.</button>
