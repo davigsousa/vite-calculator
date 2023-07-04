@@ -21,22 +21,22 @@ function App() {
           <div>
             <Button spanToDouble value="Clear" updateOutput={logic.clearDisplay} />
             <Button value="DEL" updateOutput={logic.deleteOperation} />
-            <button>/</button>
+            <Button value="/" updateOutput={() => logic.makeOperation('/')} />
 
             <Button value="7" updateOutput={logic.addDigit} />
             <Button value="8" updateOutput={logic.addDigit} />
             <Button value="9" updateOutput={logic.addDigit} />
-            <button>*</button>
+            <Button value="*" updateOutput={() => logic.makeOperation('*')} />
 
             <Button value="4" updateOutput={logic.addDigit} />
             <Button value="5" updateOutput={logic.addDigit} />
             <Button value="6" updateOutput={logic.addDigit} />
-            <button>-</button>
+            <Button value="-" updateOutput={() => logic.makeOperation('-')} />
 
             <Button value="1" updateOutput={logic.addDigit} />
             <Button value="2" updateOutput={logic.addDigit} />
             <Button value="3" updateOutput={logic.addDigit} />
-            <Button value="+" updateOutput={logic.addOperation} />
+            <Button value="+" updateOutput={() => logic.makeOperation('+')} />
 
             <Button value="." updateOutput={logic.addDecimalPoint} />
             <Button value="0" updateOutput={logic.addDigit} />

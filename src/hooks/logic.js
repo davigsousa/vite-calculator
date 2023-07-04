@@ -44,10 +44,10 @@ export function useCalculatorLogic() {
     return result;
   };
 
-  const addOperation = () => {
+  const makeOperation = (operation) => {
     const result = equalOperation();
 
-    setMemory(`${result} +`);
+    setMemory(`${result} ${operation}`);
     setDisplay("0");
   };
 
@@ -58,7 +58,7 @@ export function useCalculatorLogic() {
     clearDisplay,
     deleteOperation,
     addDecimalPoint,
-    addOperation,
+    makeOperation,
     equalOperation,
   };
 }
