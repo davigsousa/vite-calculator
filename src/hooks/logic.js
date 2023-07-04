@@ -39,7 +39,7 @@ export function useCalculatorLogic() {
     }
 
     const result = eval(`${memory}${display}`);
-    setDisplay(result);
+    setDisplay(String(result));
     setMemory(null);
     return result;
   };
