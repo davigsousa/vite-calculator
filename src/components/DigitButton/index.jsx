@@ -2,7 +2,7 @@ import P from 'prop-types';
 
 function DigitButton({ value, updateOutput }) {
   return (
-    <button onClick={() => updateOutput(String(value))}>{value}</button>
+    <button onClick={() => updateOutput(value)}>{value}</button>
   )
 }
 

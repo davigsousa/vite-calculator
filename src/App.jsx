@@ -7,9 +7,9 @@ function App() {
 
   const addDigit = (digit) => {
     if (display === '0') {
-      setDisplay(digit)
+      setDisplay(String(digit))
     } else {
-      setDisplay(display + digit)
+      setDisplay(String(display) + String(digit))
     }
   }
 
