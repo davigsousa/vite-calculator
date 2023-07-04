@@ -1,37 +1,9 @@
-import { useState } from 'react'
 import './styles/App.css'
 import Button from './components/Button'
+import { useCalculatorLogic } from './hooks/logic'
 
 function App() {
-  const [display, setDisplay] = useState('0')
-
-  const addDigit = (digit) => {
-    if (display === '0') {
-      setDisplay(String(digit))
-    } else {
-      setDisplay(String(display) + String(digit))
-    }
-  }
-
-  const clearDisplay = () => {
-    setDisplay('0')
-  }
-
-  const deleteOperation = () => {
-    if (display.length === 1) {
-      setDisplay('0')
-    } else {
-      setDisplay(display.slice(0, -1))
-    }
-  }
-
-  const addDecimalPoint = () => {
-    if (display.includes('.')) {
-      return;
-    }
-
-    setDisplay(display + '.')
-  }
+  const logic = useCalculatorLogic()
 
   return (
     <>
@@ -41,30 +13,31 @@ function App() {
         </header>
 
         <div className='calculator'>
-          <span>{display}</span>
+          <span>{logic.display}</span>
 
           <div>
-            <Button spanToDouble value="Clear" updateOutput={clearDisplay} />
-            <Button spanToDouble value="DEL" updateOutput={deleteOperation} />
-
-            <Button value="7" updateOutput={addDigit} />
-            <Button value="8" updateOutput={addDigit} />
-            <Button value="9" updateOutput={addDigit} />
+            <Button spanToDouble value="Clear" updateOutput={logic.clearDisplay} />
+            <Button value="DEL" updateOutput={logic.deleteOperation} />
             <button>/</button>
 
-            <Button value="4" updateOutput={addDigit} />
-            <Button value="5" updateOutput={addDigit} />
-            <Button value="6" updateOutput={addDigit} />
+            <Button value="7" updateOutput={logic.addDigit} />
+            <Button value="8" updateOutput={logic.addDigit} />
+            <Button value="9" updateOutput={logic.addDigit} />
             <button>*</button>
 
-            <Button value="1" updateOutput={addDigit} />
-            <Button value="2" updateOutput={addDigit} />
-            <Button value="3" updateOutput={addDigit} />
+            <Button value="4" updateOutput={logic.addDigit} />
+            <Button value="5" updateOutput={logic.addDigit} />
+            <Button value="6" updateOutput={logic.addDigit} />
             <button>-</button>
 
-            <Button value="." updateOutput={addDecimalPoint} />
-            <button>0</button>
-            <button className='double-btn'>=</button>
+            <Button value="1" updateOutput={logic.addDigit} />
+            <Button value="2" updateOutput={logic.addDigit} />
+            <Button value="3" updateOutput={logic.addDigit} />
+            <Button value="+" updateOutput={logic.addDigit} />
+
+            <Button value="." updateOutput={logic.addDecimalPoint} />
+            <Button value="0" updateOutput={logic.addDigit} />
+            <Button spanToDouble value="=" updateOutput={logic.addDigit} />
           </div>
         </div>
       </div>
